@@ -1,0 +1,14 @@
+{
+  "name": "portfolio-page",
+  "version": "1.0.0",
+  "description": "my test porfolio page",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass scss/main.scss dist/style.css --watch"
+  },
+  "author": "Shirini Alexey",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
