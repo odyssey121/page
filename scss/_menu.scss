@@ -1,0 +1,32 @@
+.menu-btn{
+    position:absolute;
+    cursor:pointer;
+    top:35px;
+    right:35px;
+    z-index:3;
+    @include easyOut;
+    .btn-line{
+        width: 28px;
+        height: 3px;
+        margin:0 0 5px 0;
+        background:#fff;
+        @include easyOut; 
+    }
+    &.close{
+        transform:rotate(180deg);
+        .btn-line{
+            // Line 1 - Rotate
+            &:nth-child(1){
+                transform:rotate(45deg) translate(5px,5px);
+            }
+            // Line 2 - Hiden
+            &:nth-child(2){
+                opacity:0;
+            }
+            // Line 3 - Rotate
+            &:nth-child(3){
+                transform:rotate(-45deg) translate(5px, -7px);
+            }
+        }
+    }
+}
