@@ -30,3 +30,82 @@
         }
     }
 }
+//menu overlay
+.menu {
+    position:fixed;
+    top:0;
+    width:100%;
+    opacity:0.9;
+    visibility:hidden;
+    &.show{
+        visibility:visible;
+    }
+    &-avatar,
+    &-nav{
+        display:flex;
+        flex-flow:column wrap;
+        width:50%;
+        float:left;
+        height: 100vh;
+        justify-content:center;
+        align-items: center;
+    }
+    &-nav{
+        margin:0;
+        padding:0;
+        background:darken($primary-color,5);
+        list-style:none;
+        transform:translate3d(0,-100%,0);
+        @include easyOut;
+        &.show{
+            transform:translate3d(0,0,0);
+        }       
+    }
+    // left-side menu nav
+    &-avatar{
+        background:$primary-color;
+        @include easyOut;
+        transform:translate3d(0,100%,0);
+        &.show{
+            // slide from bottom
+            transform:translate3d(0,0,0);
+        }
+        .photo{
+            width:250px;
+            height:250px;
+            background:url('../image/avatar.jpeg');
+            border-radius:50%;
+            border:solid 3px $secondary-color;
+
+        }
+    }
+    .nav-item{
+        transform:translate3d(600px,0,0);
+        @include easyOut;
+        &.show{
+            //slide from rigth
+            transform:translate3d(0,0,0);
+        }
+        .nav-link{
+            display:inline-block;
+            position: relative;
+            text-transform: uppercase;
+            font-size:30px;
+            padding:1rem 0;
+            font-weight: 300;
+            color:white;
+            text-decoration:none;
+            @include easyOut;
+
+        }
+        &.current > a{
+            color:$secondary-color;
+        }
+    }
+}
+// make loop transition delay each .nav-item
+@for $x from 1 through 4{
+    .nav-item:nth-child(#{$x}){
+        transition-delay:$x * 0.1s;
+    }
+}

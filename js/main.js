@@ -6,7 +6,6 @@ const menuUl = document.querySelector('.menu-nav');
 const ulItem = document.querySelectorAll('.nav-item');
 // inital state of menu
 let showMenu = false;
-console.log(ulItem);
 menuBtn.addEventListener('click',Switcher);
 
 function Switcher(){
@@ -29,5 +28,17 @@ function Switcher(){
             item.classList.remove('show'));
         showMenu = false;
     }
+}
+
+ulItem.forEach(item =>{
+    item.addEventListener('mouseover',addCurrentClass);
+    item.addEventListener('mouseout',removeCurrentClass);
+});
+
+function addCurrentClass(){
+    this.classList.add('current');
+}
+function removeCurrentClass(){
+    this.classList.remove('current');
 }
 
